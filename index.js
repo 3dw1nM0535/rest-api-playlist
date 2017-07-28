@@ -17,6 +17,13 @@ app.use(bodyParser.json());
 //Set route Middleware
 app.use('/api', require('./Routes/api'));
 
+//Error handling Middleware
+app.use(function (err, req, res, next) {
+  res.status(422).send({
+    error: err.message
+  });
+});
+
 //Listen for connection on port
 app.listen(process.env.PORT || 4000, function() {
   console.log('Server listening for connection');
