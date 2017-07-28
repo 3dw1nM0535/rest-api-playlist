@@ -11,8 +11,8 @@
     "url": "git+https://github.com/iamshaunjp/rest-api-playlist.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Edwin Moses",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/iamshaunjp/rest-api-playlist/issues"
   },
