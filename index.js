@@ -1,8 +1,15 @@
 var express = require("express");
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
 //Set up express
 var app = express();
+
+//Connect to mongodb
+mongoose.connect('mongodb://localhost/user');
+
+//Set mongoose Promise
+mongoose.Promise = global.Promise;
 
 //Body-parser Middleware
 app.use(bodyParser.json());
