@@ -1,7 +1,6 @@
-# rest-api-playlist
-Course files for the REST API tutorial series on The Net Ninja Youtube channel
+# RESTFULL-API
+This repo contains source code for restfull api tutorials.
 
-# How to use
-Each branch corresponds to a specific lesson in the playlist. For example the lesson-10 branch will contain the code at the END of lesson 10. 
+To use this course file fork this repo then clone to your local machine.
 
-Not every lesson has a corresponding branch (e.g. where the lesson added nothing else to the code).
+Checkout from branch master to branch lessio-1 to start from scratch
