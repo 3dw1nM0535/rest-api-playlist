@@ -6,7 +6,12 @@ var router = express.Router();
 
 //Get list from db
 router.get('/users', function (req, res, next) {
-  res.send({type: 'GET'});
+  User.geoNear(
+    { type: "Point", coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
+    { maxDistance: 100000, spherical: true}
+  ).then(function (user) {
+    res.send(user);
+  });
 });
 
 //Add ninja to db
