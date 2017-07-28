@@ -11,6 +11,9 @@ mongoose.connect('mongodb://localhost/user');
 //Set mongoose Promise
 mongoose.Promise = global.Promise;
 
+//Static file Middleware
+app.use(express.static('public'));
+
 //Body-parser Middleware
 app.use(bodyParser.json());
 
