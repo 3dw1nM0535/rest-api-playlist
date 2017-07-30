@@ -6,7 +6,7 @@ var mongoose = require('mongoose');
 var app = express();
 
 //Connect to mongodb
-mongoose.connect('mongodb://localhost/user');
+mongoose.createConnection('mongodb://localhost/user');
 
 //Set mongoose Promise
 mongoose.Promise = global.Promise;
