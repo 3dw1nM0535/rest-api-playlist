@@ -22,34 +22,34 @@
 
         <!-- Create React Component -->
         <script type="text/babel">
-        var Ninjas = React.createClass({
+        var Users = React.createClass({
             getInitialState: function(){
                 return({
-                    ninjas: []
+                    users: []
                 });
             },
             render: function(){
-                var ninjas = this.state.ninjas;
-                ninjas = ninjas.map(function(ninja, index){
+                var users = this.state.users;
+                users = users.map(function(user, i){
                     return(
-                        <li key={index}>
-                            <span className={ninja.obj.available}></span>
-                            <span className="name">{ninja.obj.name}</span>
-                            <span className="rank">{ninja.obj.rank}</span>
-                            <span className="dist">{Math.floor(ninja.dis / 1000)} km</span>
+                        <li key={i}>
+                            <span className={user.obj.available}></span>
+                            <span className="name">{user.obj.name}</span>
+                            <span className="rank">{user.obj.rank}</span>
+                            <span className="dist">{Math.floor(user.dis / 1000)} km</span>
                         </li>
                     );
                 });
                 return(
-                    <div id="ninja-container">
+                    <div id="user-container">
                         <form id="search" onSubmit={this.handleSubmit}>
                             <label>Enter your Latitude:</label>
                             <input type="text" ref="lat" placeholder="latitude" required />
                             <label>Enter your Longitude:</label>
                             <input type="text" ref="lng" placeholder="longitude" required />
-                            <input type="submit" value="Find Ninjas" />
+                            <input type="submit" value="Find users" />
                         </form>
-                        <ul>{ninjas}</ul>
+                        <ul>{users}</ul>
                     </div>
                 );
             },
@@ -57,17 +57,17 @@
                 e.preventDefault();
                 var lng = this.refs.lng.value;
                 var lat = this.refs.lat.value;
-                fetch('/api/ninjas?lng=' + lng + '&lat=' + lat).then(function(data){
+                fetch('/api/users?lng=' + lng + '&lat=' + lat).then(function(data){
                     return data.json();
                 }).then( json => {
                     this.setState({
-                        ninjas: json
+                        users: json
                     });
                     console.log(json);
                 });
             }
         });
-        ReactDOM.render(<Ninjas />, document.getElementById('ninjas'));
+        ReactDOM.render(<Users />, document.getElementById('users'));
         </script>
     
   </body>
