@@ -7,8 +7,8 @@ var router = express.Router();
 //Get user from the db
 router.get('/users', function (req, res, next) {
   User.geoNear(
-    { type: "Point", coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)]},
-    { maxDistance: 100000, spherical: true}
+    { type: 'Point', coordinates: [parseFloat(req.query.lng), parseFloat(req.query.lat)] },
+    { maxDistance: 100000, spherical: true }
   ).then(function (user) {
     res.send(user);
   });
@@ -27,13 +27,14 @@ router.put('/users/:id', function (req, res, next) {
     User.findOne({ _id: req.params.id }).then(function (user) {
       res.send(user);
     });
+
     res.send(user);
   });
 });
 
 //Delete user-data in the db
 router.delete('/users/:id', function (req, res, next) {
-  User.findByIdAndRemove({_id: req.params.id }).then(function (user) {
+  User.findByIdAndRemove({ _id: req.params.id }).then(function (user) {
     res.send(user);
   });
 });
