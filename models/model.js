@@ -5,28 +5,28 @@ var Schema = mongoose.Schema;
 var GeoSchema = new Schema({
   type: {
     type: String,
-    default: "Point"
+    default: 'Point',
   },
   coordinates: {
     type: [Number],
-    index: "2dsphere"
-  }
+    index: '2dsphere',
+  },
 });
 
 //Create schema for model or collection
 var UserSchema = new Schema({
   name: {
     type: String,
-    required: [true, 'Name field is required']
+    required: [true, 'Name field is required'],
   },
   rank: {
-    type: String
+    type: String,
   },
   available: {
     type: Boolean,
-    default: false
+    default: false,
   },
-  geometry: GeoSchema
+  geometry: GeoSchema,
 });
 
 var User = mongoose.model('user', UserSchema);
