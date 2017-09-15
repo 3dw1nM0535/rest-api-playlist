@@ -27,7 +27,7 @@ app.use(function (err, req, res, next) {
   });
 });
 
-//Listen for connection on port
+//Listen for connection on server port number 3000
 app.listen(process.env.PORT || 3000, function () {
   console.log('Server listening for connection');
 });
