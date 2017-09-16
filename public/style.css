@@ -8,7 +8,7 @@ body{
     max-width: 800px;
     margin: 60px auto;
     padding: 10px 20px;
-    background: #fdfdfd;
+    background: rgba(253, 253, 253, 0.959);
     border-radius: 4px;
     box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
 }
