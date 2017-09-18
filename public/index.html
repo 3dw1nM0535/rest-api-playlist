@@ -19,18 +19,37 @@
     <!--Create React Component-->
     <script type="text/babel">
       var Users = React.createClass({
+        getInitialState: function () {
+          return ({
+            users: []
+          });
+        },
         render: function () {
           return (
             <div id="user-container">
-              <form id="search">
+              <form id="search" onSubmit={this.handleSubmit}>
                 <label>Enter your latitude:</label>
                 <input type="text" ref="lat" placeholder="Latitude" required />
                 <label>Enter your longitude:</label>
                 <input type="text" ref="lng" placeholder="Longitude" required />
                 <input type="submit" value="Find Developer" />
               </form>
+              <ul></ul>
             </div>
           );
+        },
+        handleSubmit: function (e) {
+          e.preventDefault();
+          var lat = this.refs.lat.value;
+          var lng = this.refs.lng.value;
+
+          fetch('api/users?lng=' + lng + '&lat=' + lat).then( function (data) {
+            return data.json();
+          }).then( json => {
+            setState({
+              users: json
+            });
+          });
         }
       });
     </script>
